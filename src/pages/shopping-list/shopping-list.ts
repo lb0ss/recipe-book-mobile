@@ -22,7 +22,7 @@ export class ShoppingListPage {
     this.loadItems();
   }
 
-  onCheckItem(index: number) {
+  onRemoveItem(index: number) {
     this.slProvider.removeItem(index);
     this.loadItems();
   }
