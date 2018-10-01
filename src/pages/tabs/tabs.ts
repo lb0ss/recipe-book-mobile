@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ShoppingListPage } from '../shopping-list/shopping-list';
-import { RecipePage } from '../recipe/recipe';
+import { RecipesPage } from '../recipes/recipes';
 
 @Component({
   selector: 'page-tabs',
@@ -8,6 +8,6 @@ import { RecipePage } from '../recipe/recipe';
 })
 export class TabsPage {
   slPage = ShoppingListPage;
-  recipesPage = RecipePage;
+  recipesPage = RecipesPage;
 
 }
