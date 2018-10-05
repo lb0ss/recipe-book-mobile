@@ -12,6 +12,8 @@ import { ShoppingListPage } from '../pages/shopping-list/shopping-list';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ShoppingListProvider } from '../providers/ShoppingListProvider';
 import { RecipesProvider } from '../providers/recipes';
+import { SigninPage } from '../pages/signin/signin';
+import { SignupPage } from '../pages/signup/signup';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { RecipesProvider } from '../providers/recipes';
     RecipesPage,
     RecipePage,
     ShoppingListPage,
-    TabsPage
+    TabsPage,
+    SigninPage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
@@ -34,8 +38,9 @@ import { RecipesProvider } from '../providers/recipes';
     RecipesPage,
     RecipePage,
     ShoppingListPage,
-    TabsPage
-
+    TabsPage,
+    SigninPage,
+    SignupPage
   ],
   providers: [
     StatusBar,
