@@ -13,5 +13,17 @@
 
 
 <ion-content padding>
-
+  <form #form="ngForm" (ngSubmit)="onSignup(form)">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>Email</ion-label>
+        <ion-input type="email" name="email" ngModel required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Password</ion-label>
+        <ion-input type="password" name="password" [minlength]="6" ngModel required>Password</ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button block type="submit" [disabled]="!form.valid">Signup</button>
+  </form>
 </ion-content>

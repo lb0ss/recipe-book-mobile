@@ -14,6 +14,7 @@ import { ShoppingListProvider } from '../providers/ShoppingListProvider';
 import { RecipesProvider } from '../providers/recipes';
 import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
+import { AuthProvider } from '../providers/auth';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { SignupPage } from '../pages/signup/signup';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ShoppingListProvider,
-    RecipesProvider
+    RecipesProvider,
+    AuthProvider
   ]
 })
 export class AppModule {}
