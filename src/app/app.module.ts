@@ -15,6 +15,7 @@ import { RecipesProvider } from '../providers/recipes';
 import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
 import { AuthProvider } from '../providers/auth';
+import { SLOptionsPage } from '../pages/shopping-list/sl-options/sl-options';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AuthProvider } from '../providers/auth';
     ShoppingListPage,
     TabsPage,
     SigninPage,
-    SignupPage
+    SignupPage,
+    SLOptionsPage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import { AuthProvider } from '../providers/auth';
     ShoppingListPage,
     TabsPage,
     SigninPage,
-    SignupPage
+    SignupPage,
+    SLOptionsPage
   ],
   providers: [
     StatusBar,
@@ -49,7 +52,8 @@ import { AuthProvider } from '../providers/auth';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ShoppingListProvider,
     RecipesProvider,
-    AuthProvider
+    AuthProvider,
+    SLOptionsPage
   ]
 })
 export class AppModule {}
