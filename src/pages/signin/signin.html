@@ -7,12 +7,24 @@
             <ion-icon name="menu"></ion-icon>
           </button>
        </ion-buttons>
-    <ion-title>Signin</ion-title>
+    <ion-title>Sign In</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <form #form="ngForm" (ngSubmit)="onSignin(form)">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>Email</ion-label>
+        <ion-input type="email" name="email" ngModel required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Password</ion-label>
+        <ion-input type="password" name="password" ngModel required>Password</ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button block type="submit" [disabled]="!form.valid">Signin</button>
+  </form>
 </ion-content>
