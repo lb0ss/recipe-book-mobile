@@ -4,6 +4,7 @@ import { ShoppingListProvider } from '../../providers/ShoppingListProvider';
 import { Ingredient } from '../../models/ingredient';
 import { PopoverController } from 'ionic-angular';
 import { SLOptionsPage } from './sl-options/sl-options';
+import { AuthProvider } from '../../providers/auth';
 
 @Component({
   selector: 'page-shopping-list',
@@ -14,7 +15,8 @@ export class ShoppingListPage {
 
   constructor(
     private slProvider: ShoppingListProvider,
-    private popOverCtrl: PopoverController
+    private popOverCtrl: PopoverController,
+    private authProvider: AuthProvider
     ) {}
 
   ionViewWillEnter() {
@@ -37,6 +39,27 @@ export class ShoppingListPage {
     // allows the popover to know the location to present itself
     // 'ev' is a reserved property for NavOptions
     popover.present({ev: event}); 
+    popover.onDidDismiss(
+      data => {
+        if (data.action == 'load') {
+
+        } else {
+          this.authProvider.getActiveUser().getIdToken()
+            .then(
+              (token: string) => {
+                this.slProvider.storeList(token)
+                  .subscribe(
+                    () => console.log('Success!'),
+                    error => {
+                      console.log(error);
+                    }
+                  )
+              }
+            )
+
+        }
+      }
+    )
   }
 
   private loadItems() {
