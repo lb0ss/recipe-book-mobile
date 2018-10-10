@@ -15,7 +15,7 @@ import { RecipesProvider } from '../providers/recipes';
 import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
 import { AuthProvider } from '../providers/auth';
-import { SLOptionsPage } from '../pages/shopping-list/sl-options/sl-options';
+import { DatabaseOptionsPage } from '../pages/database-options/database-options';
 import { HttpClientModule } from '@angular/common/http' 
 
 
@@ -29,7 +29,7 @@ import { HttpClientModule } from '@angular/common/http'
     TabsPage,
     SigninPage,
     SignupPage,
-    SLOptionsPage
+    DatabaseOptionsPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +46,7 @@ import { HttpClientModule } from '@angular/common/http'
     TabsPage,
     SigninPage,
     SignupPage,
-    SLOptionsPage
+    DatabaseOptionsPage
   ],
   providers: [
     StatusBar,
@@ -54,8 +54,7 @@ import { HttpClientModule } from '@angular/common/http'
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ShoppingListProvider,
     RecipesProvider,
-    AuthProvider,
-    SLOptionsPage
+    AuthProvider
   ]
 })
 export class AppModule {}
