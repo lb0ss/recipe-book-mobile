@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ShoppingListProvider } from '../../providers/ShoppingListProvider';
 import { Ingredient } from '../../models/ingredient';
 import { PopoverController, LoadingController, AlertController } from 'ionic-angular';
-import { SLOptionsPage } from './sl-options/sl-options';
+import { DatabaseOptionsPage } from '../database-options/database-options';
 import { AuthProvider } from '../../providers/auth';
 
 @Component({
@@ -40,7 +40,7 @@ export class ShoppingListPage {
     const loading = this.loadingCtrl.create({
       content: 'Please wait'
     });
-    const popover = this.popOverCtrl.create(SLOptionsPage);
+    const popover = this.popOverCtrl.create(DatabaseOptionsPage);
     // allows the popover to know the location to present itself
     // 'ev' is a reserved property for NavOptions
     popover.present({ev: event}); 
