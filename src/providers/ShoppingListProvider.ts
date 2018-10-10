@@ -36,4 +36,16 @@ export class ShoppingListProvider {
         .put('https://recipe-book-mobile-43a62.firebaseio.com/' + userId + '/shopping-list.json?auth=' + token, this.ingredients)
     }
 
+    fetchList(token: string) {
+      const userId = this.authService.getActiveUser().uid;
+      return this.httpClient.get('https://recipe-book-mobile-43a62.firebaseio.com/' + userId + '/shopping-list.json?auth=' + token)
+      .do((ingredients: Ingredient[]) => {
+        if (ingredients) {
+          this.ingredients = ingredients
+        } else {
+          this.ingredients = [];
+        }
+      })
+    }
+   
 }
