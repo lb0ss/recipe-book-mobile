@@ -1,8 +1,10 @@
 import { Recipe } from "../models/recipe";
 import { Ingredient } from "../models/ingredient";
 import { Injectable } from "@angular/core";
+import { Http, Response } from "@angular/http";
 import { HttpClient } from "@angular/common/http";
 import { AuthProvider } from "./auth";
+import 'rxjs/Rx';
 
 @Injectable()
 export class RecipesProvider {
@@ -10,6 +12,7 @@ export class RecipesProvider {
 
     constructor(
         private httpClient: HttpClient,
+        private http: Http,
         private authService: AuthProvider
         ) {}
 
@@ -47,13 +50,22 @@ export class RecipesProvider {
 
     fetchList(token: string) {
         const userId = this.authService.getActiveUser().uid;
-        return this.httpClient.get('https://recipe-book-mobile-43a62.firebaseio.com/' + userId + '/recipes.json?auth=' + token)
-        .do((recipes: Recipe[]) => {
-            if (recipes) {
-                this.recipes = recipes;
-            } else {
-                this.recipes = [];
-            }
-        })
+        return this.http.get('https://recipe-book-mobile-43a62.firebaseio.com/' + userId + '/recipes.json?auth=' + token)
+					.map((response: Response)=> {
+							const recipes: Recipe[] = response.json() ? response.json() : [];
+							for (let item of recipes) {
+								if (!item.hasOwnProperty('ingredients')) {
+									item.ingredients = [];
+								}
+							}
+							return recipes;
+					})
+					.do((recipes: Recipe[])=> {
+						if (recipes) {
+							this.recipes = recipes;
+						} else {
+							this.recipes = [];
+						}
+					})
     }
 }

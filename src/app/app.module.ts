@@ -16,8 +16,8 @@ import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
 import { AuthProvider } from '../providers/auth';
 import { DatabaseOptionsPage } from '../pages/database-options/database-options';
-import { HttpClientModule } from '@angular/common/http' 
-
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http'
   imports: [
     BrowserModule,
     HttpClientModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
